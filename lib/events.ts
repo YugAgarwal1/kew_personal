@@ -6,6 +6,9 @@ export const eventCategoryLabels: Record<EventCategory, string> = {
   "trade-show": "Trade Shows",
   conference: "Conferences",
   corporate: "Corporate Events",
+  "industrial-exhibition": "Industrial Exhibitions",
+  "international-exhibition": "International Exhibitions",
+  "engineering-exhibition": "Engineering Exhibitions",
 };
 
 /** Singular labels used on cards and detail pages. */
@@ -14,6 +17,9 @@ export const eventCategoryTags: Record<EventCategory, string> = {
   "trade-show": "Trade show",
   conference: "Conference",
   corporate: "Corporate event",
+  "industrial-exhibition": "Industrial Exhibition",
+  "international-exhibition": "International Exhibition",
+  "engineering-exhibition": "Engineering Exhibition",
 };
 
 /** Filters appear once the listing has enough events to make them useful. */

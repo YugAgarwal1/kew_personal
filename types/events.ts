@@ -1,4 +1,4 @@
-export type EventCategory = "exhibition" | "trade-show" | "conference" | "corporate";
+export type EventCategory = "exhibition" | "trade-show" | "conference" | "corporate" | "industrial-exhibition" | "international-exhibition" | "engineering-exhibition";
 
 export type EventImage = {
   src: string;

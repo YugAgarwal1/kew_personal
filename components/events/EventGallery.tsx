@@ -49,7 +49,6 @@ export default function EventGallery({ images, title }: { images: EventImage[]; 
     <div className="shell">
       <div data-ev-reveal className="event-gallery-heading">
         <div>
-          <p className="product-section-mark events-section-mark">02 / Gallery</p>
           <h2 id="event-gallery-title" className="event-section-title font-display">From the <span>floor.</span></h2>
         </div>
         <p className="section-lead">{pad(count)} {count === 1 ? "photograph" : "photographs"}. Select an image to view it full screen.</p>

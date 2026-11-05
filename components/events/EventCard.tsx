@@ -16,7 +16,7 @@ export default function EventCard({ event, featured = false, eager = false }: Ev
   const titleId = `event-card-${event.slug}`;
 
   return <article data-ev-card aria-labelledby={titleId} className={`event-tile group ${featured ? "is-featured" : ""}`}>
-    <div className="event-tile-media">
+    <div className="event-tile-media" data-ev-image-reveal>
       <Image
         src={event.coverImage.src}
         alt={event.coverImage.alt}

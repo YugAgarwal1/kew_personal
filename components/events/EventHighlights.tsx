@@ -7,7 +7,6 @@ export default function EventHighlights({ highlights }: { highlights: EventHighl
   return <section aria-labelledby="event-highlights-title" className="event-highlights section-pad text-white">
     <div className="shell">
       <div data-ev-reveal className="event-highlights-heading">
-        <p className="product-section-mark">03 / Highlights</p>
         <h2 id="event-highlights-title" className="event-section-title font-display">Moments that <span>mattered.</span></h2>
       </div>
 

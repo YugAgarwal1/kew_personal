@@ -9,7 +9,7 @@ function AdjacentLink({ event, direction }: { event: KewEvent; direction: "previ
   const isNext = direction === "next";
   return <Link href={`/events/${event.slug}`} rel={isNext ? "next" : "prev"} className={`event-adjacent group ${isNext ? "is-next" : ""}`}>
     <span className="event-adjacent-thumb">
-      <Image src={event.coverImage.src} alt="" fill sizes="120px" className="object-cover" style={{ objectPosition: event.coverImage.position }} />
+      <Image src={event.coverImage.src} alt={event.coverImage.alt} fill sizes="120px" className="object-cover" style={{ objectPosition: event.coverImage.position }} />
     </span>
     <span className="event-adjacent-copy">
       <span className="event-adjacent-label">

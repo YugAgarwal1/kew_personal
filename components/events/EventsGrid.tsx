@@ -28,7 +28,6 @@ export default function EventsGrid({ events }: { events: EventSummary[] }) {
     <div className="shell">
       <div data-ev-reveal className="events-list-heading">
         <div>
-          <p className="product-section-mark events-section-mark">01 / Event archive</p>
           <h2 id="events-list-title" className="events-list-title font-display">Where KEW <span>meets the industry.</span></h2>
         </div>
         {showFilters
