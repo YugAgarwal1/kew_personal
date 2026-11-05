@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="/" />
         <link rel="preload" href="/video/kew-industrial-background.mp4" as="video" type="video/mp4" />

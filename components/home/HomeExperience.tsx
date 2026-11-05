@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, type KeyboardEvent } from "react";
-import { ArrowRight, ArrowUpRight, Download, Menu, X } from "lucide-react";
+import { useRef, useState, type KeyboardEvent } from "react";
+import { ArrowRight, Download } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { products } from "@/lib/products";
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 const CustomImage = ({ src, alt, className, fill = false, loading = "lazy", ...props }: { src: string; alt: string; className?: string; fill?: boolean; loading?: "lazy" | "eager"; [key: string]: any }) => {
   const webpSrc = src.replace(/\.(png|jpg|jpeg)$/i, '.webp');
@@ -70,20 +72,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function HomeExperience() {
   const root = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
   const current = products[active];
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    const closeOnEscape = (event: globalThis.KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", closeOnEscape);
-    };
-  }, [menuOpen]);
 
   const handleProductKeys = (event: KeyboardEvent<HTMLDivElement>) => {
     const last = products.length - 1;
@@ -193,30 +182,7 @@ export default function HomeExperience() {
   }, { scope: root });
 
   return <div ref={root} className="bg-[#f4f4f1] text-[#111317]">
-    <header className="site-header absolute inset-x-0 top-0 z-50 border-b border-white/15 text-white">
-      <div className="shell flex h-20 items-center justify-between">
-        <a href="#top" aria-label="KEW Electricals home" className="brand-mark relative z-10 block h-11 w-[90px] overflow-hidden"><img src="/images/kew-logo.webp" alt="KEW Electricals" loading="eager" decoding="sync" className="absolute inset-0 w-full h-full object-contain" /></a>
-        <nav aria-label="Primary navigation" className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.16em] lg:flex"><a className="nav-link" href="#products">Products</a><a className="nav-link" href="#engineering">Engineering</a><a className="nav-link" href="#legacy">Legacy</a><a className="nav-link" href="#contact">Contact</a></nav>
-        <a href={enquiry} className="header-enquiry hidden px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] lg:block">Send an enquiry</a>
-        <button className="mobile-menu-toggle fixed right-4 top-3 z-[60] grid h-11 w-11 place-items-center lg:hidden" aria-label="Toggle navigation" aria-controls="mobile-navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</button>
-      </div>
-    </header>
-    {menuOpen && <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-menu lg:hidden">
-        <div className="mobile-menu-heading">
-          <p className="mobile-menu-label">Explore KEW</p>
-          <span>Electrical engineering since 1961</span>
-        </div>
-        <div className="mobile-menu-list">
-          {[
-            ["About us", "#story"],
-            ["Products", "#products"],
-            ["Engineering", "#engineering"],
-            ["Our legacy", "#legacy"],
-            ["Contact", "#contact"],
-          ].map(([label, href]) => <a key={href} className="mobile-menu-link" href={href} onClick={() => setMenuOpen(false)}><strong>{label}</strong><ArrowUpRight aria-hidden="true" size={16} /></a>)}
-        </div>
-        <a className="mobile-menu-enquiry" href={enquiry}>Start an enquiry <ArrowRight size={17} /></a>
-      </nav>}
+    <SiteHeader isHome />
 
     <main id="top">
       <section data-hero-section className="relative min-h-screen overflow-hidden bg-[#111317] text-white">
@@ -575,24 +541,6 @@ export default function HomeExperience() {
       </section>
     </main>
 
-    <footer className="site-footer bg-[#080a0c] py-14 text-white/70">
-      <div className="shell grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <div className="brand-mark relative h-14 w-28 overflow-hidden"><img src="/images/kew-logo.webp" alt="KEW Electricals" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-contain" /></div>
-          <p className="mt-6 max-w-sm text-sm leading-7">Kusum Engineering Works — electrical switchgear, fusegear, controlgear and power distribution products.</p>
-        </div>
-        <div>
-          <p className="footer-title">Explore</p>
-          <div className="grid gap-3 text-sm"><a href="#products">Products</a><a href="#engineering">Engineering</a><a href="#legacy">Legacy</a><a href="#events">Events</a><a href="https://kewelectricals.com/career">Careers</a></div>
-        </div>
-        <address className="not-italic">
-          <p className="footer-title">Head office</p>
-          <p className="text-sm leading-7">Kusum Engineering Works<br />S.V. Road, Goregaon (West)<br />Mumbai – 400104, India</p>
-          <a className="mt-4 block text-sm text-white" href="mailto:info@kewelectricals.com">info@kewelectricals.com</a>
-          <a className="mt-2 block text-sm text-white" href="tel:+91224276764990">+91 22 4276764990</a>
-        </address>
-      </div>
-      <div className="shell mt-14 flex flex-col gap-3 border-t border-white/12 pt-6 text-[10px] uppercase tracking-[.13em] sm:flex-row sm:justify-between"><p>© {new Date().getFullYear()} Kusum Engineering Works</p><p>Concept website · KEW Electricals</p></div>
-    </footer>
+    <SiteFooter isHome />
   </div>;
 }

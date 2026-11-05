@@ -20,6 +20,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--kew-red); outli
 .nav-link::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; background: #e52529; content: ""; transform: scaleX(0); transform-origin: left; transition: transform .22s ease; }
 .nav-link:hover { color: #fff; }
 .nav-link:hover::after { transform: scaleX(1); }
+.nav-link[aria-current="page"] { color: #fff; }
+.nav-link[aria-current="page"]::after { transform: scaleX(1); }
 .header-enquiry { border: 1px solid rgb(255 255 255 / .48); transition: background .22s ease, border-color .22s ease, color .22s ease; }
 .header-enquiry:hover { border-color: #fff; background: #fff; color: var(--ink); }
 .hero-heading { max-width: 760px; font-size: clamp(3.35rem, 6vw, 6.25rem); line-height: .9; text-wrap: balance; }
