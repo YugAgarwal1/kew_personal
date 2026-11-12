@@ -4,19 +4,15 @@ export const enquiryUrl = "https://kewelectricals.com/contact-us";
 export const primaryLinks = [
   ["About", "/about"],
   ["Products", "#products"],
-  ["Engineering", "#engineering"],
-  ["Legacy", "#legacy"],
   ["Events", "/events"],
-  ["Contact", "#contact"],
+  ["Contact", "/contact"],
 ] as const;
 
 export const mobileLinks = [
   ["About us", "/about"],
   ["Products", "#products"],
-  ["Engineering", "#engineering"],
-  ["Our legacy", "#legacy"],
   ["Events", "/events"],
-  ["Contact", "#contact"],
+  ["Contact", "/contact"],
 ] as const;
 
 export const footerLinks = [
