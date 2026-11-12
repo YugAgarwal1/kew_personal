@@ -57,5 +57,16 @@ export function useContactAnimations(scope: RefObject<HTMLElement | null>) {
         onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, duration: 0.85, stagger: 0.1, ease: "power3.out", overwrite: true }),
       });
     }
+
+    // Add slide-in animation for contact channels
+    gsap.utils.toArray<HTMLElement>(".ct-channel").forEach((channel) => {
+      gsap.from(channel, {
+        x: -20,
+        autoAlpha: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: { trigger: channel, start: "top 85%", once: true },
+      });
+    });
   }, { scope });
 }
