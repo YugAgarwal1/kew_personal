@@ -2,6 +2,7 @@ export const enquiryUrl = "https://kewelectricals.com/contact-us";
 
 /** [label, href]. Hash links point at homepage sections. */
 export const primaryLinks = [
+  ["About", "/about"],
   ["Products", "#products"],
   ["Engineering", "#engineering"],
   ["Legacy", "#legacy"],
@@ -10,7 +11,7 @@ export const primaryLinks = [
 ] as const;
 
 export const mobileLinks = [
-  ["About us", "#story"],
+  ["About us", "/about"],
   ["Products", "#products"],
   ["Engineering", "#engineering"],
   ["Our legacy", "#legacy"],
@@ -19,6 +20,7 @@ export const mobileLinks = [
 ] as const;
 
 export const footerLinks = [
+  ["About", "/about"],
   ["Products", "#products"],
   ["Engineering", "#engineering"],
   ["Legacy", "#legacy"],
